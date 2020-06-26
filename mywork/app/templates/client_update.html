@@ -1,0 +1,84 @@
+<html>
+<body>
+{% extends "client_home.html" %}
+
+
+{% block poonam %}
+    {% if profile %}
+
+        <table class="table table-striped">
+        <form action="{% url "save_client_update" %}" method="post">
+            {% csrf_token %}
+
+            <thead>
+
+            <tr>
+
+
+                <th scope="col"><input type="number" value="{{ profile.id}}" name="u0" hidden required ></th>
+
+            </tr>
+
+            <tr>
+
+                <th scope="col">Client_Name</th>
+                <th scope="col"><input type="text" value="{{ profile.client_name }}" name="u1" required ></th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+
+                <th scope="col">Company_Name</th>
+                <th scope="col"><input type="text" value="{{ profile.company_name }}" name="u2" required></th>
+
+            </tr>
+            <tr>
+
+                <th scope="col">Address</th>
+                <th scope="col"><input type="text" value="{{ profile.address }}" name="u3" required></th>
+
+            </tr>
+            <tr>
+
+                <th scope="col">Contact</th>
+                <th scope="col"><input type="number" value="{{ profile.contact }}" name="u4" required></th>
+
+            </tr>
+            <tr>
+
+                <th scope="col">Email</th>
+                <th scope="col"><input type="email" value="{{ profile.email }}" name="u5" required></th>
+
+            </tr>
+            <tr>
+
+                <th scope="col">Password</th>
+                <th scope="col"><input type="password" value="{{ profile.password}}" name="u6" required></th>
+
+            </tr>
+            <tr>
+
+                <th scope="col">Business</th>
+                <th scope="col"><input type="text" value="{{ profile.business_profile}}" name="u7" required></th>
+
+            </tr>
+             <tr>
+                 <th>
+                     <center>
+                       <button type="submit">UPDATE </button>
+                         </center>
+                 </th>
+             </tr>
+            </tbody>
+
+         </form>
+        </table>
+
+
+
+    {% endif %}
+{% endblock %}
+
+</body>
+</html>

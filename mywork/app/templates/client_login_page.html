@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'client_page.html' %}
+{% block rakesh %}
+
+    {#    <h2 class="mb-4" align="center">My Account#}
+    {#    </h2>#}
+
+
+
+    <form action="client_login_check" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" name="l1" required
+                   aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                else.
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="l2" required>
+        </div>
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+        {% if msg %}
+            <h5 align="center">{{ msg }}</h5>
+        {% endif %}
+        <div class="flex-col-c p-t-224">
+						<span class="txt2 p-b-10">
+							Don’t have an account?
+						</span>
+
+            <a href="{% url "client_registration" %}" class="txt3 bo1 hov1">
+                Sign up now
+            </a>
+        </div>
+
+    </form>
+    </div>
+    </div>
+    </div>
+{% endblock %}
+</body>
+</html>
